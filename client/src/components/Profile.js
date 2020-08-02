@@ -43,7 +43,6 @@ class Profile extends Component {
                 <td>Email</td>
                 <td>{this.state.email}</td>
               </tr>
-              <button href="/Landing">Go Back Home</button>
             </tbody>
           </table>
         </div>
