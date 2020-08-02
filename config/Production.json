@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://imtiytem:imtiy007@web-based.6mrks.mongodb.net/web-based?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
