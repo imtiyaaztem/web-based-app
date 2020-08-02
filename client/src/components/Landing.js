@@ -20,12 +20,6 @@ class Landing extends Component {
           </li>
 
           <li class="nav-item">
-            <Link to="/Gallery" class="nav-link active">
-              Gallery
-            </Link>
-          </li>
-
-          <li class="nav-item">
             <Link to="/Cart" class="nav-link active">
               Cart
             </Link>

@@ -6,3 +6,49 @@ body {
   background: -webkit-linear-gradient(to right, #4286f4, #373b44);
   background: linear-gradient(to right, #4286f4, #373b44);
 }
+.listbox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.material-icons {
+  font-size: 2.4em;
+  cursor: pointer;
+}
+.cardItem {
+  width: 300px;
+}
+.cardItem .card-img .card-title {
+  color: black;
+  font-weight: 400;
+}
+.cart {
+  margin-top: 40px;
+}
+.collection .collection-item {
+  display: flex;
+}
+.collection-item.avatar .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ee6e73;
+  display: block;
+  margin-bottom: 20px;
+}
+.collection .collection-item img {
+  width: 50px;
+  margin-right: 25px;
+}
+.item-desc {
+  align-self: center;
+}
+.card .cardImg img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}

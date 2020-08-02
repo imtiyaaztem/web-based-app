@@ -1,52 +1,63 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addCart } from "./Action/cartAct";
 import { Link } from "react-router-dom";
 
 class Product extends Component {
+  click = (id) => {
+    this.props.addCart(id);
+  };
+
   render() {
+    let itemList = this.props.items.map((item) => {
+      return (
+        <div className="card" key={item.id} style={{ width: "30rem" }}>
+          <div className="card-img-top">
+            <img src={item.img} alt={item.title} style={{ width: "50%" }} />
+            <span
+              to="/"
+              className="btn btn-primary btn-circle btn-sm"
+              onClick={() => {
+                this.click(item.id);
+              }}
+            >
+              <i className="material-icons">add</i>
+            </span>
+          </div>
+
+          <div className="contCard">
+            <p>{item.desc}</p>
+            <p>Price: R{item.price}</p>
+          </div>
+        </div>
+      );
+    });
     return (
-      <div className="container" style={{ paddingTop: "2rem" }}>
-        <Link to="/Cart" style={{ paddingLeft: "60rem" }}>
+      <div className="container">
+        <h2>Parts</h2>
+        <Link
+          to="/Cart"
+          className="fa fa-shopping-cart"
+          style={{ paddingLeft: "60rem", fontSize: "20px" }}
+        >
+          {" "}
           Cart
         </Link>
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>
-                <button className="fa fa-plus"> Add to cart</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>
-                <button className="fa fa-plus"> Add to cart</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>
-                <button className="fa fa-plus"> Add to cart</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="listbox">{itemList}</div>
       </div>
     );
   }
 }
-
-export default Product;
+const StateProps = (state) => {
+  return {
+    items: state.items,
+  };
+};
+const DispatchProps = (dispatch) => {
+  return {
+    addCart: (id) => {
+      dispatch(addCart(id));
+    },
+  };
+};
+export default connect(StateProps, DispatchProps)(Product);
